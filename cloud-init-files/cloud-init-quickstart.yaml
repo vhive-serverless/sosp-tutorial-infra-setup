@@ -1,0 +1,10 @@
+users:
+  - name: vhive
+    groups: [sudo]
+    shell: /bin/bash
+    lock_passwd: false
+    ssh_pwauth: True
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    passwd: "$6$VIW2PvmBdVhv0icX$vqDh2hlzLAjBJmxxXQiwZt6NEgWoNs5dWibog7EH6hlPdWtBo2Z//esyZhriloctA913s34HzSBsVS6BTYkO60"
+ssh_pwauth: True
+

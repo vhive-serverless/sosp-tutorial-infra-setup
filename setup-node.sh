@@ -1,0 +1,73 @@
+#!/bin/bash
+
+# Compress required files for the setup 
+zip -r cloud-init-files.zip cloud-init-files
+
+# Check if the VM_IP parameter is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 <VM_IP>"
+  exit 1
+fi
+
+# Assign the first command-line argument (VM_IP) to the VM_IP variable
+VM_IP="$1"
+
+# Define the SSH username for Cloudlab Account
+SSH_USER="$2"
+
+# Define the guest username and password
+GUEST_USER="guest"
+PASSWORD="guest"
+
+# Path to the local cloud-init.yaml file on your client machine
+LOCAL_CLOUD_INIT_FILE="cloud-init-files.zip"
+
+echo "Copying cloud-init files zip to VM at IP: $VM_IP"
+
+# Use scp to copy the generated cloud-init-files to the remote VM
+scp -o StrictHostKeyChecking=no "$LOCAL_CLOUD_INIT_FILE" "$SSH_USER@$VM_IP:/tmp/cloud-init-files.zip"
+
+
+echo "Configuring VM at IP: $VM_IP"
+
+# SSH into the VM without host key checking and perform the remaining setup
+ssh -o StrictHostKeyChecking=no "$SSH_USER@$VM_IP" <<EOF
+
+  # Create the guest user with the specified password
+  sudo useradd -m "$GUEST_USER"
+  echo "$GUEST_USER:$PASSWORD" | sudo chpasswd
+
+  # Enable password authentication in SSH configuration
+  sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+
+  # Restart the SSH service
+  sudo systemctl restart sshd
+
+  # Update package repository and install snapd
+  sudo apt update
+  sudo apt install -y snapd
+
+  # Install Multipass
+  sudo snap install multipass
+
+  # Unzip cloudinit files to ~
+  sudo unzip -o /tmp/cloud-init-files.zip 
+
+  # Unzip cloudinit files to /root/
+  sudo unzip -o /tmp/cloud-init-files.zip -d /root/
+
+  # Verify that the file has been moved
+  sudo ls -l /root/cloud-init-files/
+  
+  if !sudo multipass info &>/dev/null; then
+      echo "Multipass is not running. Starting Multipass..."
+      sudo multipass start
+  else
+      echo "Multipass is already running."
+  fi
+
+  sleep 15
+  
+EOF
+
+echo "Configuration completed for VM at IP: $VM_IP"
