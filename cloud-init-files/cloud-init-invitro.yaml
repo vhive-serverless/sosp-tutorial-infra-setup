@@ -9,4 +9,4 @@ users:
 ssh_pwauth: True
 runcmd:
   - sudo apt install -y pip tmux
-  - sudo -u invitro bash -c 'cd ~ && tmux new-session -d -s invitro && tmux send-keys -t invitro "mkdir -p vhive && git clone https://github.com/dilinade/vhive_tutorial vhive/ && cd vhive/ && chmod +x setup_vhive.sh && ./setup_vhive.sh" C-m'
+  - sudo -u invitro bash -c 'cd ~ && tmux new-session -d -s invitro && tmux send-keys -t invitro "curl -O -L https://raw.githubusercontent.com/vhive-serverless/sosp-tutorial-infra-setup/main/install_vhive_invitro.sh && chmod +x install_vhive_invitro.sh && ./install_vhive_invitro.sh" C-m'
