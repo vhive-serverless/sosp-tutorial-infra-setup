@@ -7,4 +7,6 @@ users:
     sudo: ALL=(ALL) NOPASSWD:ALL
     passwd: "$6$VIW2PvmBdVhv0icX$vqDh2hlzLAjBJmxxXQiwZt6NEgWoNs5dWibog7EH6hlPdWtBo2Z//esyZhriloctA913s34HzSBsVS6BTYkO60"
 ssh_pwauth: True
-
+runcmd:
+  - sudo apt install -y tmux
+  - sudo -u vhive bash -c 'cd ~ && tmux new-session -d -s vhive && tmux send-keys -t vhive "git clone --depth=1 https://github.com/vhive-serverless/sosp-tutorial-infra-setup ~/sosp-tutorial-infra-setup && chmod +x ~/sosp-tutorial-infra-setup/vHive_hands_on/setup_vhive_vm.sh && ~/sosp-tutorial-infra-setup/vHive_hands_on/setup_vhive_vm.sh" C-m'

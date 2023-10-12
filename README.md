@@ -9,7 +9,7 @@ Run the script with the following command-line options:
 
 Example usage:
 
-``` ./cloudlab-vm-setup.sh -q 5 -v 3 -u myuser ```
+``` ./cloud-lab-vm-setup.sh -q 5 -v 3 -u myuser ```
 
 ## Important Note
 Please make sure to create a file `ip_list.txt` with your actual IP addresses of Cloudlab nodes.
