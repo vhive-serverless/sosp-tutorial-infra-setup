@@ -47,21 +47,27 @@ ssh -o StrictHostKeyChecking=no "$SSH_USER@$VM_IP" <<EOF
         exit 1
     fi
 
-    # Create 'quickstart' VMs using multipass
+    # Check if 'quickstart' VMs exist and get the count
+    EXISTING_QUICKSTART_VMS=\$(sudo multipass list | grep 'quickstart-vm' | wc -l)
+  
+    # Check if 'invitro' VMs exist and get the count
+    EXISTING_INVITRO_VMS=\$(sudo multipass list | grep 'invitro-vm' | wc -l)
+
+    # Create additional 'quickstart' VMs using multipass
     if [ "$NUM_QUICKSTART_VMS" -gt 0 ]; then
-        echo "Creating $NUM_QUICKSTART_VMS 'quickstart' VMs with cloud-init..."
-        for ((i=1; i<=$NUM_QUICKSTART_VMS; i++)); do
+        echo "Creating $((NUM_QUICKSTART_VMS - EXISTING_QUICKSTART_VMS)) additional 'quickstart' VMs with cloud-init..."
+        for ((i=EXISTING_QUICKSTART_VMS + 1; i<=EXISTING_QUICKSTART_VMS + $NUM_QUICKSTART_VMS; i++)); do
             sudo multipass launch --name "quickstart-vm\${i}" --cloud-init "\${QUICKSTART_CLOUD_INIT}" -c 4 -m 8G -d 20G 20.04
         done
-        echo "$NUM_QUICKSTART_VMS 'quickstart' VMs created successfully."
+        echo "$((NUM_QUICKSTART_VMS - EXISTING_QUICKSTART_VMS)) additional 'quickstart' VMs created successfully."
     fi
 
-    # Create 'invitro' VMs using multipass
+    # Create additional 'invitro' VMs using multipass
     if [ "$NUM_INVITRO_VMS" -gt 0 ]; then
-        echo "Creating $NUM_INVITRO_VMS 'invitro' VMs with cloud-init..."
-        for ((i=1; i<=$NUM_INVITRO_VMS; i++)); do
+        echo "Creating $((NUM_INVITRO_VMS - EXISTING_INVITRO_VMS)) additional 'invitro' VMs with cloud-init..."
+        for ((i=EXISTING_INVITRO_VMS + 1; i<=EXISTING_INVITRO_VMS + $NUM_INVITRO_VMS; i++)); do
             sudo multipass launch --name "invitro-vm\${i}" --cloud-init "\${INVITRO_CLOUD_INIT}" -c 4 -m 8G -d 20G 20.04
         done
-        echo "$NUM_INVITRO_VMS 'invitro' VMs created successfully."
+        echo "$((NUM_INVITRO_VMS - EXISTING_INVITRO_VMS)) additional 'invitro' VMs created successfully."
     fi
 EOF
