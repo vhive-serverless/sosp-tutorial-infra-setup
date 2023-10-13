@@ -1,9 +1,13 @@
 git clone --depth=1 https://github.com/vhive-serverless/vhive.git
 cd vhive
 mkdir -p /tmp/vhive-logs
-./scripts/cloudlab/setup_node.sh stock-only
+
+./scripts/install_go.sh; source /etc/profile
+pushd scripts && go build -o setup_tool && popd
+
+./scripts/setup_tool setup_node stock-only
 sudo screen -d -m containerd
-./scripts/cluster/create_one_node_cluster.sh stock-only
+./scripts/setup_tool create_one_node_cluster stock-only
 
 cd ..
 git clone --branch=words_sosp23_tutorial https://github.com/vhive-serverless/invitro.git
