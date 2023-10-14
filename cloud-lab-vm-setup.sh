@@ -30,9 +30,13 @@ fi
 # Set permissions
 chmod +x setup-node.sh
 chmod +x add-vms.sh
+chmod +x setup-ssh-tunnel.sh
 
 # Compress Cloud-init files
 zip -r cloud-init-files.zip cloud-init-files
+
+# Compress Cloud-init files
+zip -r post-setup-node.zip post-setup-node
 
 # Specify the file containing the list of IP addresses (one per line)
 IP_FILE="ip_list.txt"  # Replace with your file name
@@ -49,6 +53,6 @@ while IFS= read -r ip; do
     session_name="vm_${ip//./_}"
 
     # Create a new tmux session with a window running the script
-    tmux new-session -d -s "$session_name" "./setup-node.sh $ip $SSH_USER && ./add-vms.sh -i $ip -v $NUM_QUICKSTART_VMS -q $NUM_QUICKSTART_VMS -u $SSH_USER"
+    tmux new-session -d -s "$session_name" "./setup-node.sh $ip $SSH_USER && ./add-vms.sh -i $ip -v $NUM_INVITRO_VMS -q $NUM_QUICKSTART_VMS -u $SSH_USER && ./setup-ssh-tunnel $ip $SSH_USER"
 
 done < "$IP_FILE"
