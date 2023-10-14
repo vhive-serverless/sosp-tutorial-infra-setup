@@ -3,12 +3,31 @@
 # Define the output file name
 output_file="vm_ports_mapping.txt"
 
-# Check if the output file already exists and delete it if it does
+names=()
+ips=()
+random_ports=()
+
+# Check if the output file already exists
 if [ -f "$output_file" ]; then
-  sudo rm -f "$output_file"
+
+  # Read each line from the output file
+  while IFS=: read -r name ip random_port; do
+    # Add the extracted values to their respective lists
+    names+=("$name")
+    ips+=("$ip")
+    random_ports+=("$random_port")
+
+  done < "$output_file"
+
+  # Display the existing VMs,IPs and their mapped ports
+  echo "Names: ${names[*]}"
+  echo "IPs: ${ips[*]}"
+  echo "Random Ports: ${random_ports[*]}"
+else
+  echo "Output file does not exist."
 fi
 
-# Function to generate a unique random port
+# Function to generate a unique port
 generate_port_with_offset() {
   local vm_name="$1"
   local vm_offset="$2"
@@ -25,7 +44,8 @@ generate_port_with_offset() {
 # SSH into the VM and get its IP
 sudo multipass list --format csv | tail -n +2 | while IFS=, read -r name state ipv4 dummy1 dummy2 dummy3; do
   if [ "$state" == "Running" ]; then
-    case "$name" in
+  
+  case "$name" in
       quickstart-vm*)
         port_offset=10000
         ;;
@@ -37,10 +57,15 @@ sudo multipass list --format csv | tail -n +2 | while IFS=, read -r name state i
         ;;
     esac
 
-    echo "Getting a port with offset $port_offset for $name..."
-    random_port=$(generate_port_with_offset "$name" "$port_offset")
-    echo "Adding $ipv4:$random_port to $output_file"
-    echo "$ipv4:$random_port" >> "$output_file"
+    if [[ ! " ${names[*]} " =~ " $name " ]]; then
+      echo "Getting a port with offset $port_offset for $name..."
+      random_port=$(generate_port_with_offset "$name" "$port_offset")
+      echo "Adding $name:$ipv4:$random_port to $output_file"
+      echo "$name:$ipv4:$random_port" >> "$output_file"
+    else
+      echo "$name is in the list."
+    fi
+
   else
     echo "VM $name is not running."
   fi
