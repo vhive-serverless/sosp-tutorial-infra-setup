@@ -4,7 +4,7 @@
 
 Before you begin, ensure the following prerequisites are met:
 
-1. Create a file named `ip_list.txt` containing the actual IP addresses of your Cloudlab nodes.
+1. Create a file named `ip_list.txt` containing the actual IP addresses of your Cloudlab nodes. (Always end with a newline \n)
 
 2. Ensure you have access to Cloudlab without requiring an SSH passphrase.
 
