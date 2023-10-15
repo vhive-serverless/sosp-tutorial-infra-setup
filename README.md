@@ -20,6 +20,8 @@ Before you begin, ensure the following prerequisites are met:
 
 ```shell
 git clone https://github.com/vhive-serverless/sosp-tutorial-infra-setup/
+```
+```shell
 cd sosp-tutorial-infra-setup
 ```
 
@@ -50,6 +52,8 @@ You can view the progress by running these commands:
 
 ```shell
 tmux list-sessions
+```
+```shell
 tmux attach -t {session_name}
 ```
 
