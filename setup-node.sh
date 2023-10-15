@@ -61,7 +61,7 @@ ssh -o StrictHostKeyChecking=no "$SSH_USER@$VM_IP" <<EOF
   sudo unzip -o /tmp/post-setup-node.zip 
 
   # Executable permissions
-  find post-setup-node/ -name "*.sh" -type f -exec chmod +x {} \;
+  find post-setup-node/ -name "*.sh" -type f -exec sudo chmod +x {} \;
 
   # Unzip cloudinit files to /root/
   sudo unzip -o /tmp/cloud-init-files.zip -d /root/

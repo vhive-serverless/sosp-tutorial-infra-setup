@@ -21,6 +21,6 @@ ssh -o StrictHostKeyChecking=no "$SSH_USER@$VM_IP" <<EOF
 
   # Execute port forwarding
 
-  ./post-setup-node/generate-port-mapping.sh
+  ./post-setup-node/start-ssh-tunnel.sh
 
 EOF

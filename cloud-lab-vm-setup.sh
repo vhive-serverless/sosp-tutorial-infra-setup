@@ -53,6 +53,6 @@ while IFS= read -r ip; do
     session_name="vm_${ip//./_}"
 
     # Create a new tmux session with a window running the script
-    tmux new-session -d -s "$session_name" "./setup-node.sh $ip $SSH_USER && ./add-vms.sh -i $ip -v $NUM_INVITRO_VMS -q $NUM_QUICKSTART_VMS -u $SSH_USER && ./setup-ssh-tunnel $ip $SSH_USER"
+    tmux new-session -d -s "$session_name" "./setup-node.sh $ip $SSH_USER && ./add-vms.sh -i $ip -v $NUM_INVITRO_VMS -q $NUM_QUICKSTART_VMS -u $SSH_USER && ./setup-ssh-tunnel.sh $ip $SSH_USER"
 
 done < "$IP_FILE"
