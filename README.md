@@ -26,7 +26,7 @@ cd sosp-tutorial-infra-setup
 ### Give executable permissions
 
 ```shell
-find . -name "*.sh" -type f -exec chmod +x {} ;
+find . -name "*.sh" -type f -exec chmod +x {} \;
 ```
 
 
