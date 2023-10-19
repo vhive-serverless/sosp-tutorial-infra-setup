@@ -1,0 +1,168 @@
+body {
+  background-color: #eae7dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px 30px; /* Added padding to the card */
+  max-width: 500px; /* Adjust the width as needed */
+  text-align: center;
+  padding-bottom: 35px;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+h2 {
+  font-size: 1.5rem;
+  text-align: center; /* Align the heading to the center */
+  width: 100%;
+}
+
+form {
+  margin: 20px 0;
+  width: 100%;
+  text-align: left; /* Align form content to the left */
+}
+
+label {
+  margin-bottom: 20px; /* Increased margin between label and input */
+  font-weight: bold; /* Make the label bold */
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #e85a4f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.response {
+  margin-top: 20px;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+.response-item {
+  display: flex;
+  align-items: center;
+}
+
+.response-item button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #e85a4f;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.response-item button:hover {
+  color: #c04033;
+}
+
+.copy-button {
+  background-color: #e85a4f;
+  color: white;
+  margin-left: 10px;
+  border: none;
+  border-radius: 20%;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.copy-button i {
+  font-size: 14px; /* Adjust the size of the icon as needed */
+}
+
+
+.response-box {
+  background: white;
+  border: 1px solid #e85a4f; /* Add an orange outline border */
+  border-radius: 5px;
+  padding: 10px;
+  border-color: #e85a4f;
+  color: #e85a4f;
+  text-align: left;
+  width: -webkit-fill-available;
+}
+
+.response-box pre {
+  background: none; /* Remove background color from response text */
+  margin: 0;
+  flex: 1;
+}
+
+.response-box strong {
+  display: block; /* Separate small titles from response text */
+}
+
+.response-box .copy-button {
+  background: none; /* Remove background color from the copy button */
+  color: #e85a4f;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.response-box .copy-button i {
+  font-size: 14px; /* Adjust the size of the icon as needed */
+}
+
+.response-box .button-text {
+  margin-left: 5px; /* Add horizontal space between the icon and text */
+}
+
+.response-text {
+  font-size: 14px;
+  font-weight: 600;
+}
