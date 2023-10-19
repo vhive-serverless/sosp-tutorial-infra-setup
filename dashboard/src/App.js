@@ -51,13 +51,13 @@ const EmailForm = () => {
         <div style={{ display: 'flex', alignItems: 'center' }}>
       <div className="response-box">
         <div>
-          <pre class="response-text">ssh vhive@{data.user_vm_mapping[0].vm_ip} -p {data.user_vm_mapping[0].port}</pre>   
+          <pre class="response-text">ssh vhive@{data.user_vm_mapping[0].vm_ip} -p 1000{data.user_vm_mapping[0].port}</pre>   
         </div>
         <pre class="response-text">password : vhive-sosp</pre>       
         </div>
           <button
                 className="copy-button"
-                onClick={() => copyToClipboard(`ssh vhive@${data.user_vm_mapping[0].vm_ip} -p ${data.user_vm_mapping[0].port}`)}
+                onClick={() => copyToClipboard(`ssh vhive@${data.user_vm_mapping[0].vm_ip} -p 1000${data.user_vm_mapping[0].port}`)}
               >
            <FaCopy/>
           </button>
@@ -67,14 +67,14 @@ const EmailForm = () => {
       <div className="response-box">
        
         <div>
-          <pre class="response-text">ssh invitro@{data.user_vm_mapping[1].vm_ip} -p {data.user_vm_mapping[1].port}</pre>
+          <pre class="response-text">ssh invitro@{data.user_vm_mapping[1].vm_ip} -p 2000{data.user_vm_mapping[0].port}</pre>
          <pre class="response-text">password : invitro-sosp</pre>
         </div>
         
       </div>
       <button
             className="copy-button"
-            onClick={() => copyToClipboard(JSON.stringify(data.invitro, null, 2))}
+            onClick={() => copyToClipboard(`ssh invitro@${data.user_vm_mapping[0].vm_ip} -p 2000${data.user_vm_mapping[0].port}`)}
           >
            <FaCopy/>
           </button>
