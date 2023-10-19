@@ -83,7 +83,7 @@ const EmailForm = () => {
     </div>
   ) : (
     <form onSubmit={handleSubmit}>
-      <h4>Please enter your email to retrieve credentials for hands-on sessions</h4>
+      <h4>Retrieve credentials for hands-on sessions</h4>
       <label>
         Email:
         <input  style={{marginTop:'10px',marginBottom:'15px'}} type="email" value={email} onChange={handleEmailChange} placeholder='abc@gmail.com' />
