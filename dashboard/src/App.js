@@ -51,7 +51,7 @@ const EmailForm = () => {
         <div style={{ display: 'flex', alignItems: 'center' }}>
       <div className="response-box">
         <div>
-          <pre class="response-text">ssh vhive@{data.user_vm_mapping[0].vm_ip} -p 1000{data.user_vm_mapping[0].port}</pre>   
+          <pre class="response-text">ssh vhive@{data.user_vm_mapping[0].vm_ip} -p 1000{data.user_vm_mapping[0].port} -L 9411:127.0.0.1:9411</pre>   
         </div>
         <pre class="response-text">password : vhive-sosp</pre>       
         </div>
