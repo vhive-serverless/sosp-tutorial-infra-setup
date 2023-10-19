@@ -47,28 +47,28 @@ const EmailForm = () => {
         </div>
         {data ? (
     <div>
-        <h3>SSH credentials for vHive:</h3>
+        <h3>SSH credentials for vHive</h3>
         <div style={{ display: 'flex', alignItems: 'center' }}>
       <div className="response-box">
         <div>
-          <pre class="response-text">{JSON.stringify(data.vhive, null, 2)}</pre>   
+          <pre class="response-text">ssh vhive@{data.user_vm_mapping[0].vm_ip} -p {data.user_vm_mapping[0].port}</pre>   
         </div>
         <pre class="response-text">password : vhive-sosp</pre>       
         </div>
           <button
                 className="copy-button"
-                onClick={() => copyToClipboard(JSON.stringify(data.vhive, null, 2))}
+                onClick={() => copyToClipboard(`ssh vhive@${data.user_vm_mapping[0].vm_ip} -p ${data.user_vm_mapping[0].port}`)}
               >
            <FaCopy/>
           </button>
       </div>
-      <h3 style={{marginTop:'20px'}}>SSH credentials for Invitro:</h3>
+      <h3 style={{marginTop:'20px'}}>SSH credentials for Invitro</h3>
       <div style={{ display: 'flex', alignItems: 'center' }}>
       <div className="response-box">
        
         <div>
-          <pre class="response-text">{JSON.stringify(data.invitro, null, 2)}</pre>
-         <pre class="response-text">password :  invitro-sosp</pre>
+          <pre class="response-text">ssh invitro@{data.user_vm_mapping[1].vm_ip} -p {data.user_vm_mapping[1].port}</pre>
+         <pre class="response-text">password : invitro-sosp</pre>
         </div>
         
       </div>
@@ -83,9 +83,10 @@ const EmailForm = () => {
     </div>
   ) : (
     <form onSubmit={handleSubmit}>
+      <h4>Please enter your email to retrieve credentials for hands-on sessions</h4>
       <label>
         Email:
-        <input type="email" value={email} onChange={handleEmailChange} />
+        <input  style={{marginTop:'10px',marginBottom:'15px'}} type="email" value={email} onChange={handleEmailChange} placeholder='abc@gmail.com' />
       </label>
       <button type="submit" disabled={loading}>
         {loading ? 'Loading...' : 'Submit'}
