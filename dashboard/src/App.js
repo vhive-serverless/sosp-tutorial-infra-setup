@@ -57,7 +57,7 @@ const EmailForm = () => {
         </div>
           <button
                 className="copy-button"
-                onClick={() => copyToClipboard(`ssh vhive@${data.user_vm_mapping[0].vm_ip} -p 1000${data.user_vm_mapping[0].port}`)}
+                onClick={() => copyToClipboard(`ssh vhive@${data.user_vm_mapping[0].vm_ip} -p 1000${data.user_vm_mapping[0].port} -L 9411:127.0.0.1:9411`)}
               >
            <FaCopy/>
           </button>
