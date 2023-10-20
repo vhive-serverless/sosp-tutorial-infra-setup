@@ -70,14 +70,14 @@ Quickstart VM 01:
 
 ```shell
 ssh vhive@{CLOUD_LAB_IP} -p 10001
-Password: vhive-sosp
 ```
 
 Quickstart VM 02:
 ```shell
 ssh vhive@{CLOUD_LAB_IP} -p 10002
-Password: vhive-sosp
 ```
+
+Default SSH Credentials for VMs are shared on slack and tutorial slides.
 
 ### Accessing Invitro VMs
 
@@ -89,15 +89,14 @@ Invitro VM 01:
 
 ```shell
 ssh invitro@{CLOUD_LAB_IP} -p 20001
-Password: invitro-sosp
 ```
 
 Invitro VM 02:
 ```shell
 ssh invitro@{CLOUD_LAB_IP} -p 20002
-Password: invitro-sosp
 ```
 
+Default SSH Credentials for VMs are shared on slack and tutorial slides.
 
 ## Individual Script Usage
 ### Setup Individual Cloudlab Nodes 
@@ -108,11 +107,3 @@ Usage: ``` ./setup-node.sh <ip> <cloudlab-user> ```
 
 ### Add VMs to a Specific Cloudlab Node
 Usage: ``` ./add-vms.sh -q <Number_of_quickstart_VMs> -v <Number_of_invitro_VMs> -u <Cloudlab_User> -i <VM_IP> ```
-
-Default SSH Credentials for VMs
-- Invitro VMs
-    -  ``` username : invitro ```
-    - ``` password : invitro-sosp```
-- Quickstart VMs
-   -  ``` username : vhive ```
-    - ``` password : vhive-sosp```
