@@ -19,7 +19,7 @@ const EmailForm = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`http://130.127.133.65:5000/allocate?email=${email}`, {
+      const response = await fetch(`https://130.127.133.65/allocate?email=${email}`, {
         method: 'GET',
         // Add any headers or other configurations as needed
       });

@@ -7,7 +7,7 @@ function View() {
 
   useEffect(() => {
     // Fetch data from the Python web server
-    fetch('http://130.127.133.65:5000/get_data')
+    fetch('https://130.127.133.65/get_data')
       .then((response) => response.json())
       .then((data) => setData(data));
   }, []);
