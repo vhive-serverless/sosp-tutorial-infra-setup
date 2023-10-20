@@ -1,0 +1,53 @@
+/* Add some basic styling to the table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Style table header */
+.table thead th {
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+  text-align: left;
+  padding: 8px;
+  border: 1px solid #444;
+}
+
+/* Style table body */
+.table tbody td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Style even rows with a different background color */
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Highlight table rows on hover */
+.table tbody tr:hover {
+  background-color: #e0e0e0;
+}
+
+/* Add styles for the table container and heading */
+.table-container {
+  text-align: center;
+  margin: 20px;
+}
+
+h1 {
+  margin: 0;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Add styles to make the table scrollable */
+.table-wrapper {
+  max-height: 500px; /* Adjust the max height as needed */
+  overflow-y: auto;
+}
+
+/* Rest of your existing table styles */
+/* ... */
