@@ -16,7 +16,7 @@ const EmailForm = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`https://ypsaexi7fntypjfdk7sdorcjuu0kcgru.lambda-url.us-east-1.on.aws/`, {
+      const response = await fetch(`https://ypsaexi7fntypjfdk7sdorcjuu0kcgru.lambda-url.us-east-1.on.aws/?email=${email}`, {
         method: 'GET',
         // Add any headers or other configurations as needed
       });
@@ -51,13 +51,13 @@ const EmailForm = () => {
         <div style={{ display: 'flex', alignItems: 'center' }}>
       <div className="response-box">
         <div>
-          <pre class="response-text">ssh vhive@{data.user_vm_mapping[0].vm_ip} -p 1000{data.user_vm_mapping[0].port} -L 9411:127.0.0.1:9411</pre>   
+          <pre class="response-text">ssh vhive@{data.user_vm_mapping.vm_ip} -p 1000{data.user_vm_mapping.port} -L 9411:127.0.0.1:9411</pre>   
         </div>
         <pre class="response-text">password : vhive-sosp</pre>       
         </div>
           <button
                 className="copy-button"
-                onClick={() => copyToClipboard(`ssh vhive@${data.user_vm_mapping[0].vm_ip} -p 1000${data.user_vm_mapping[0].port} -L 9411:127.0.0.1:9411`)}
+                onClick={() => copyToClipboard(`ssh vhive@${data.user_vm_mapping.vm_ip} -p 1000${data.user_vm_mapping.port} -L 9411:127.0.0.1:9411`)}
               >
            <FaCopy/>
           </button>
@@ -67,14 +67,14 @@ const EmailForm = () => {
       <div className="response-box">
        
         <div>
-          <pre class="response-text">ssh invitro@{data.user_vm_mapping[1].vm_ip} -p 2000{data.user_vm_mapping[0].port}</pre>
+          <pre class="response-text">ssh invitro@{data.user_vm_mapping.vm_ip} -p 2000{data.user_vm_mapping.port}</pre>
          <pre class="response-text">password : invitro-sosp</pre>
         </div>
         
       </div>
       <button
             className="copy-button"
-            onClick={() => copyToClipboard(`ssh invitro@${data.user_vm_mapping[0].vm_ip} -p 2000${data.user_vm_mapping[0].port}`)}
+            onClick={() => copyToClipboard(`ssh invitro@${data.user_vm_mapping.vm_ip} -p 2000${data.user_vm_mapping.port}`)}
           >
            <FaCopy/>
           </button>
