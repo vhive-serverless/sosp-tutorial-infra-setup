@@ -6,6 +6,7 @@ const EmailForm = () => {
   const [email, setEmail] = useState('');
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -25,7 +26,7 @@ const EmailForm = () => {
         const result = await response.json();
         setData(result);
       } else {
-        // Handle API errors
+        setError(true);
       }
     } catch (error) {
       // Handle network errors
@@ -82,16 +83,19 @@ const EmailForm = () => {
       
     </div>
   ) : (
+    error ? (<>Sorry! User not found.</>):
+    (
     <form onSubmit={handleSubmit}>
       <h4>Retrieve credentials for hands-on sessions</h4>
       <label>
         Email:
-        <input  style={{marginTop:'10px',marginBottom:'15px'}} type="email" value={email} onChange={handleEmailChange} placeholder='abc@gmail.com' />
+        <input  style={{marginTop:'10px',marginBottom:'15px'}} type="email" value={email} onChange={handleEmailChange} placeholder='abc@gmail.com' required />
       </label>
       <button type="submit" disabled={loading}>
         {loading ? 'Loading...' : 'Submit'}
       </button>
     </form>
+    )
   )}
 </div>
     );
