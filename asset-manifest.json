@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/sosp-tutorial-infra-setup/static/css/main.18373851.css",
-    "main.js": "/sosp-tutorial-infra-setup/static/js/main.c71bffa1.js",
+    "main.js": "/sosp-tutorial-infra-setup/static/js/main.c7e5e0a7.js",
     "static/js/787.545aecf5.chunk.js": "/sosp-tutorial-infra-setup/static/js/787.545aecf5.chunk.js",
     "index.html": "/sosp-tutorial-infra-setup/index.html",
     "main.18373851.css.map": "/sosp-tutorial-infra-setup/static/css/main.18373851.css.map",
-    "main.c71bffa1.js.map": "/sosp-tutorial-infra-setup/static/js/main.c71bffa1.js.map",
+    "main.c7e5e0a7.js.map": "/sosp-tutorial-infra-setup/static/js/main.c7e5e0a7.js.map",
     "787.545aecf5.chunk.js.map": "/sosp-tutorial-infra-setup/static/js/787.545aecf5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.18373851.css",
-    "static/js/main.c71bffa1.js"
+    "static/js/main.c7e5e0a7.js"
   ]
 }
