@@ -1,11 +1,11 @@
 users:
-  - name: invitro
+  - name: vhive
     groups: [sudo]
     shell: /bin/bash
     lock_passwd: false
     ssh_pwauth: True
     sudo: ALL=(ALL) NOPASSWD:ALL
-    passwd: "$6$k4YGz1JJ2q6Y5hKy$pAwAJdkZIVJkHHv6NoWA2w93paZ8FRk2T1NwBjqaa1fNhi/IJGLQ9RbspbAk1en67MSysoh/uMAV2vQiOj1EW/"
+    passwd: "$6$IAZRmy6FncdFuSZr$5uyvklVZY3v1aiQ3IQQ1WiMxD8Kiic28PAy/ODG/tsYrAd2t/Scr/RZspv2JlsKVeX1oEiCiGWaTfz7KKbT9T1"
 ssh_pwauth: True
 runcmd:
   - sudo apt install -y pip tmux

@@ -5,7 +5,7 @@ users:
     lock_passwd: false
     ssh_pwauth: True
     sudo: ALL=(ALL) NOPASSWD:ALL
-    passwd: "$6$VIW2PvmBdVhv0icX$vqDh2hlzLAjBJmxxXQiwZt6NEgWoNs5dWibog7EH6hlPdWtBo2Z//esyZhriloctA913s34HzSBsVS6BTYkO60"
+    passwd: "$6$IAZRmy6FncdFuSZr$5uyvklVZY3v1aiQ3IQQ1WiMxD8Kiic28PAy/ODG/tsYrAd2t/Scr/RZspv2JlsKVeX1oEiCiGWaTfz7KKbT9T1"
 ssh_pwauth: True
 runcmd:
   - sudo apt install -y tmux
