@@ -104,9 +104,6 @@ Password: invitro-sosp
 
 Usage: ``` ./setup-node.sh <ip> <cloudlab-user> ```
 
-- Create guest user account to SSH 
-    - ``` ssh guest@123.123.123.123 ```
-    - ```password : guest```
 - Install multipass
 
 ### Add VMs to a Specific Cloudlab Node

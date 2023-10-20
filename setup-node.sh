@@ -12,10 +12,6 @@ VM_IP="$1"
 # Define the SSH username for Cloudlab Account
 SSH_USER="$2"
 
-# Define the guest username and password
-GUEST_USER="guest"
-PASSWORD="guest"
-
 # Path to the local cloud-init.yaml file on your client machine
 LOCAL_CLOUD_INIT_FILE="cloud-init-files.zip"
 
@@ -36,16 +32,6 @@ echo "Configuring VM at IP: $VM_IP"
 
 # SSH into the VM without host key checking and perform the remaining setup
 ssh -o StrictHostKeyChecking=no "$SSH_USER@$VM_IP" <<EOF
-
-  # Create the guest user with the specified password
-  sudo useradd -m "$GUEST_USER"
-  echo "$GUEST_USER:$PASSWORD" | sudo chpasswd
-
-  # Enable password authentication in SSH configuration
-  sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
-
-  # Restart the SSH service
-  sudo systemctl restart sshd
 
   # Update package repository and install snapd
   sudo apt update
