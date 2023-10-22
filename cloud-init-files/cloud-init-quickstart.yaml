@@ -9,4 +9,4 @@ users:
 ssh_pwauth: True
 runcmd:
   - sudo apt install -y tmux
-  - sudo -u vhive bash -c 'cd ~ && tmux new-session -d -s vhive && tmux send-keys -t vhive "git clone --depth=1 https://github.com/vhive-serverless/sosp-tutorial-infra-setup ~/sosp-tutorial-infra-setup && chmod +x ~/sosp-tutorial-infra-setup/vHive_hands_on/setup_vhive_vm.sh && ~/sosp-tutorial-infra-setup/vHive_hands_on/setup_vhive_vm.sh" C-m'
+  - sudo -u vhive bash -c 'cd ~ && tmux new-session -d -s vhive && tmux send-keys -t vhive "git clone --depth=1 https://github.com/vhive-serverless/sosp-tutorial-infra-setup ~/sosp-tutorial-infra-setup && chmod +x ~/sosp-tutorial-infra-setup/vHive_hands_on/setup_vhive_vm.sh && ~/sosp-tutorial-infra-setup/vHive_hands_on/setup_vhive_vm.sh && export PATH=$HOME/.istioctl/bin:$PATH" C-m'
