@@ -25,7 +25,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTable } from 'react-table';
 import './Table.css';
-const Proxy_URL = require('./proxy_url');
+const {lambda_proxy_url} = require('./proxy_url');
 
 function View() {
   const [data, setData] = useState([]);
@@ -33,7 +33,7 @@ function View() {
   useEffect(() => {
     // Fetch data from the server
     // Using a Lambda function as a proxy
-    fetch(`${Proxy_URL.lambda_proxy_url}`)
+    fetch(`${lambda_proxy_url}`)
       .then((response) => response.json())
       .then((data) => setData(data));
   }, []);

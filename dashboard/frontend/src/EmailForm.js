@@ -25,7 +25,7 @@
 import React, { useState } from 'react';
 import './App.css'; // Import the CSS file for styling
 import { FaCopy } from 'react-icons/fa';
-const Proxy_URL = require('./proxy_url');
+const {lambda_proxy_url} = require('./proxy_url');
 
 const EmailForm = () => {
   const [email, setEmail] = useState('');
@@ -42,7 +42,7 @@ const EmailForm = () => {
     setLoading(true);
     // Using a Lambda function as a proxy
     try {
-      const response = await fetch(`${Proxy_URL.lambda_proxy_url}/?email=${email}`, {
+      const response = await fetch(`${lambda_proxy_url}/?email=${email}`, {
         method: 'GET',
         // Add any headers or other configurations as needed
       });
