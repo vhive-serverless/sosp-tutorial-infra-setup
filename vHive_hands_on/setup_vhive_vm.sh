@@ -2,7 +2,7 @@ git clone --depth=1 https://github.com/vhive-serverless/vhive.git
 git clone --depth=1 https://github.com/vhive-serverless/vSwarm.git
 
 # install go 1.19, awscli and istioctl
-sudo snap install go --channel=1.19/stable --classic
+sudo snap install go --channel=1.22/stable --classic
 sudo snap install aws-cli --classic
 sudo apt update && sudo apt install -y gcc
 curl -sL https://istio.io/downloadIstioctl | sh -
@@ -13,9 +13,9 @@ source /etc/profile
 cd ~/vhive/
 go build
 pushd scripts && go build -o setup_tool && popd && mv ./scripts/setup_tool ./
-cd ~/vhive/examples/deployer/
+cd ~/vSwarm/tools/deployer/
 go build
-cd ~/vhive/examples/invoker/
+cd ~/vSwarm/tools/invoker/
 go build
 cd ~/vSwarm/tools/test-client/
 go build
