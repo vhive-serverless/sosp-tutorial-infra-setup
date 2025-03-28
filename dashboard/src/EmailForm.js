@@ -19,7 +19,7 @@ const EmailForm = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`https://130.127.133.65/allocate?email=${email}`, {
+      const response = await fetch(`https://d6r2lqnwvf7f5jd7663apyuqgq0qknqw.lambda-url.us-west-2.on.aws?email=${email}`, {
         method: 'GET',
         // Add any headers or other configurations as needed
       });
@@ -43,7 +43,7 @@ const EmailForm = () => {
     
     return (
       <div className="card">
-        <h2>The 2nd Tutorial on vHive & Serverless Research</h2>
+        <h2>Analyzing Performance of Serverless Clusters with vHive and In-Vitro @ SESAME25</h2>
         <div className="logo-container">
           <img src={"/sosp-tutorial-infra-setup/vhive-logo.png"}  alt="vHive Logo" width={'150px'}/>
           {/* <img src={"./vhive-logo.png"} alt="vHive Logo" width={'150px'}/> */}
@@ -54,13 +54,13 @@ const EmailForm = () => {
         <div style={{ display: 'flex', alignItems: 'center' }}>
       <div className="response-box">
         <div>
-          <pre class="response-text">ssh vhive@{data.user_vm_mapping.vm_ip} -p 1000{data.user_vm_mapping.port} -L 9411:127.0.0.1:9411</pre>   
+          <pre class="response-text">ssh vhive@{data.ip} -p 1000{data.port}</pre>   
         </div>
-        <pre class="response-text">password : vhive-sosp</pre>       
+        <pre class="response-text">password : vhive@sesame</pre>       
         </div>
           <button
                 className="copy-button"
-                onClick={() => copyToClipboard(`ssh vhive@${data.user_vm_mapping.vm_ip} -p 1000${data.user_vm_mapping.port} -L 9411:127.0.0.1:9411`)}
+                onClick={() => copyToClipboard(`ssh vhive@${data.ip} -p 1000${data.port}`)}
               >
            <FaCopy/>
           </button>
@@ -70,14 +70,14 @@ const EmailForm = () => {
       <div className="response-box">
        
         <div>
-          <pre class="response-text">ssh invitro@{data.user_vm_mapping.vm_ip} -p 2000{data.user_vm_mapping.port}</pre>
-         <pre class="response-text">password : invitro-sosp</pre>
+          <pre class="response-text">ssh vhive@{data.ip} -p 2000{data.port}</pre>
+         <pre class="response-text">password : vhive@sesame</pre>
         </div>
         
       </div>
       <button
             className="copy-button"
-            onClick={() => copyToClipboard(`ssh invitro@${data.user_vm_mapping.vm_ip} -p 2000${data.user_vm_mapping.port}`)}
+            onClick={() => copyToClipboard(`ssh vhive@${data.ip} -p 2000${data.port}`)}
           >
            <FaCopy/>
           </button>
